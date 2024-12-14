@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   before_save { self.email = email.downcase }
+  mount_uploader :profile_image, ProfileImageUploader
   has_secure_password
 
   validates :name,     presence: true
