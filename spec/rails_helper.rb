@@ -62,4 +62,15 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # メールのヘルパーを追加
+  config.include Module.new {
+    def text_body(mail)
+      mail.text_part ? mail.text_part.body.decoded : ""
+    end
+
+    def html_body(mail)
+      mail.html_part ? mail.html_part.body.decoded : ""
+    end
+  }
 end
