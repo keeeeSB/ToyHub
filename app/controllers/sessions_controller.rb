@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user&.authenticate(params[:session][:password])
       if user.activated?
-        reser_sessin
+        reset_session
         log_in user
         flash[:success] = "ログインしました。"
-        redirect_to User
+        redirect_to user
       else
         flash[:warning] = "アカウントが承認されていません。メールを確認してください。"
         redirect_to root_path

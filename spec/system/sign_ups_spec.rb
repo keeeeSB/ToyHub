@@ -5,7 +5,7 @@ RSpec.describe "ユーザー登録機能", type: :system do
     driven_by(:rack_test)
   end
 
-  it "ユーザー情報を入力し登録ボタンを押すと、承認メールを送信する" do
+  scenario "ユーザー情報を入力し登録ボタンを押すと、承認メールを送信する" do
     visit signup_path
 
     fill_in "お名前", with: "テストユーザー"
