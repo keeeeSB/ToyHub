@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   attr_accessor  :activation_token
-  before_save    :dawncase_email
+  before_save    :downcase_email
   before_create  :create_activation_digest
   mount_uploader :profile_image, ProfileImageUploader
   has_secure_password
@@ -23,7 +23,7 @@ class User < ApplicationRecord
   end
 
   def authenticated?(attribute, token)
-    digest = send("#{sttribute}_digest")
+    digest = send("#{attribute}_digest")
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
   end
@@ -45,6 +45,6 @@ class User < ApplicationRecord
 
     def create_activation_digest
       self.activation_token  = User.new_token
-      self.activation_digest = User.digest(ctivation_token)
+      self.activation_digest = User.digest(activation_token)
     end
 end
