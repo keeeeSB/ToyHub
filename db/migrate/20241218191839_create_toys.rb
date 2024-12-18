@@ -1,10 +1,9 @@
 class CreateToys < ActiveRecord::Migration[7.0]
   def change
     create_table :toys do |t|
-      t.string :name
-      t.text :description
-      t.string :age_range
-      t.decimal :price
+      t.string :name, null: false
+      t.text :description, null: false
+      t.decimal :price, null: false
 
       t.timestamps
     end
