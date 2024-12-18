@@ -1,5 +1,5 @@
 <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-  <div class="col-md-3 mb-2 mb-md-0 ms-3">
+  <div class="col-md-3 mb-2 mb-md-0 ms-5">
     <%= link_to root_path, class: "d-inline-flex link-body-emphasis text-decoration-none" do %>
       <%= image_tag "logo.png", width: 40, height: 40 %>
     <% end %>
@@ -12,7 +12,7 @@
     <% end %>
   </ul>
 
-  <div class="col-md-3 text-end me-3">
+  <div class="col-md-3 text-end me-5">
     <% if logged_in? %>
       <%= link_to "プロフィール", current_user, class: "btn btn-outline-success btn-sm me-2" %>
       <%= link_to "ログアウト", logout_path, data: { turbo_method: :delete }, class: "btn btn-outline-danger btn-sm" %>
