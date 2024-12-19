@@ -5,7 +5,7 @@
   </div>
 <% end %>
 
-<div class="row">
+<div class="row justify-content-center">
   <% if @toys.present? %>
     <% @toys.each do |toy| %>
       <div class="col-md-4 mb-4">
@@ -13,7 +13,7 @@
           <div class="card-body">
             <h5 class="card-title"><%= toy.name %></h5>
             <p class="card-text"><%= truncate(toy.description, length: 100) %></p>
-            <p class="card-text"><strong>価格:</strong> ¥<%= toy.price %></p>
+            <p class="card-text"><strong>価格:</strong> ¥<%= number_with_delimiter(toy.price.to_i) %></p>
             <%= link_to "詳細を見る", toy_path(toy), class: 'btn btn-primary' %>
           </div>
         </div>

@@ -17,7 +17,10 @@
 
       <div class="mb-4">
         <%= f.label :price, "値段", class: "form-label" %>
-        <%= f.number_field :price, step: 1, min: 0, class: "form-control" %>
+        <div class="input-group">
+          <%= f.number_field :price, step: 100, min: 0, class: "form-control" %>
+          <span class="input-group-text">円</span>
+        </div>
       </div>
 
       <div class="text-center">
