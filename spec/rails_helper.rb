@@ -73,4 +73,8 @@ RSpec.configure do |config|
       mail.html_part ? mail.html_part.body.decoded : ""
     end
   }
+
+  config.before(:each, type: :system) do
+    driven_by(:rack_test)
+  end
 end
