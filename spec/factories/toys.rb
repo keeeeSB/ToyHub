@@ -1,8 +1,7 @@
 FactoryBot.define do
   factory :toy do
-    name { "MyString" }
-    description { "MyText" }
-    age_range { "MyString" }
-    price { "9.99" }
+    name { "ぬいぐるみ" }
+    description { "アンパンマンのぬいぐるみです。" }
+    price { "1000" }
   end
 end
