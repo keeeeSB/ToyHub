@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2024_12_22_123953) do
   create_table "reviews", force: :cascade do |t|
-    t.string "comment", null: false
+    t.text "comment", null: false
     t.string "rating", null: false
     t.integer "user_id", null: false
     t.integer "toy_id", null: false
