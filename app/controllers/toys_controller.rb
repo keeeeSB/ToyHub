@@ -12,12 +12,15 @@ class ToysController < ApplicationController
 
   def create
     @toy = Toy.new(toy_params)
+    
+    @toy.assign_tags(params[:tags]) if params[:tags].present?
+
     if @toy.save
       flash[:success] = "おもちゃを登録しました。"
       redirect_to @toy
     else
       flash.now[:danger] = "おもちゃを登録できませんでした。"
-      render :new, status: :umprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 

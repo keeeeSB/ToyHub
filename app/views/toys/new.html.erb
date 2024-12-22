@@ -15,12 +15,18 @@
         <%= f.text_area :description, class: "form-control" %>
       </div>
 
-      <div class="mb-4">
+      <div class="mb-3">
         <%= f.label :price, "値段", class: "form-label" %>
         <div class="input-group">
           <%= f.number_field :price, step: 100, min: 0, class: "form-control" %>
           <span class="input-group-text">円</span>
         </div>
+      </div>
+
+      <div class="mb-4">
+        <%= label_tag :tags, "タグ（スペースで区切って複数タグ付け可）", class: "form-label" %>
+        <%= text_field_tag :tags, @toy.tags.map(&:name).join(" "),
+                                  class: "form-control", placeholder: "スポーツ 球技" %>
       </div>
 
       <div class="text-center">
