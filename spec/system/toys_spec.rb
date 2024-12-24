@@ -14,7 +14,7 @@ RSpec.describe "おもちゃの登録機能" do
       fill_in "商品説明", with: "アンパンマンのぬいぐるみです。"
       fill_in "値段", with: "1000"
       click_button "登録"
-  }.to change(Toy, :count).by(1)
+    }.to change(Toy, :count).by(1)
 
   expect(page).to have_content "おもちゃを登録しました。"
   end

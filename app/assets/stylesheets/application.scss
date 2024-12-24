@@ -7,3 +7,13 @@
   object-fit: cover;
   border-radius: 50%;
 }
+
+.no-decoration {
+  text-decoration: none;
+  color: inherit;
+}
+
+.no-decoration:hover {
+  text-decoration: underline;
+  color: gray;
+}
