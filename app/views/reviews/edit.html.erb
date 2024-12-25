@@ -1,0 +1,30 @@
+<h2 class="text-center">レビュー編集</h2>
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <%= form_with(model: @review, url: user_review_path, local: true) do |f| %>
+      <%= render "shared/error_messages", object: @review %>
+
+      <div class="mb-3">
+        <%= f.label :rating, "評価（1~5）", class: "form-label" %>
+        <div class="star-rating">
+          <% 5.downto(1) do |i| %>
+            <%= f.radio_button :rating, i, id: "star#{i}" %>
+            <label for="star<%= i %>" class="star">
+              ★
+            </label>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :comment, "コメント", class: "form-label" %>
+        <%= f.text_area :comment, class: "form-control" %>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <%= f.submit "更新", class: "btn btn-outline-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

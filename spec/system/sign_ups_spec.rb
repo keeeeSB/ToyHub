@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "ユーザー登録機能", type: :system do
   scenario "ユーザー情報を入力し登録ボタンを押すと、承認メールを送信する" do
     visit root_path
+    click_link "新規登録"
 
     fill_in "お名前", with: "テストユーザー"
     fill_in "メールアドレス", with: "test@example.com"

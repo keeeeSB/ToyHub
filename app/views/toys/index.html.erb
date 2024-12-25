@@ -8,13 +8,21 @@
 <div class="row justify-content-center">
   <% if @toys.present? %>
     <% @toys.each do |toy| %>
-      <div class="col-md-4 mb-4">
+      <div class="col-md-3 mb-4">
         <div class="card h-100">
           <div class="card-body">
-            <h5 class="card-title"><%= toy.name %></h5>
+            <h5 class="card-title">
+              <%= link_to toy.name, toy_path(toy), class: "no-decoration" %>
+            </h5>
             <p class="card-text"><%= truncate(toy.description, length: 100) %></p>
             <p class="card-text"><strong>価格:</strong> ¥<%= number_with_delimiter(toy.price.to_i) %></p>
-            <%= link_to "詳細を見る", toy_path(toy), class: 'btn btn-primary' %>
+            <% if toy.tags.present? %>
+              <p class="card-text">
+                <%= toy.tags.map do |tag| %>
+                  <%= link_to tag.name, "#", class: "btn btn-primary btn-sm" %>
+                <% end.join(" ").html_safe %>
+              </p>
+            <% end %>
           </div>
         </div>
       </div>
